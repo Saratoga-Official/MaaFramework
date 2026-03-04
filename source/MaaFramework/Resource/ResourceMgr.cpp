@@ -349,7 +349,7 @@ CustomRecognitionSession ResourceMgr::custom_recognition(const std::string& name
 {
     auto it = custom_recognition_sessions_.find(name);
     if (it == custom_recognition_sessions_.end()) {
-        return {};
+        return { };
     }
 
     return it->second;
@@ -359,7 +359,7 @@ CustomActionSession ResourceMgr::custom_action(const std::string& name) const
 {
     auto it = custom_action_sessions_.find(name);
     if (it == custom_action_sessions_.end()) {
-        return {};
+        return { };
     }
 
     return it->second;
@@ -820,7 +820,7 @@ std::optional<json::object> ResourceMgr::get_default_action_param(const std::str
 
     switch (type) {
     case Type::DoNothing:
-        param = std::monostate {};
+        param = std::monostate { };
         break;
     case Type::Click:
         param = default_pipeline_.get_action_param<ClickParam>(type);
@@ -862,7 +862,7 @@ std::optional<json::object> ResourceMgr::get_default_action_param(const std::str
         param = default_pipeline_.get_action_param<ScrollParam>(type);
         break;
     case Type::StopTask:
-        param = std::monostate {};
+        param = std::monostate { };
         break;
     case Type::Command:
         param = default_pipeline_.get_action_param<CommandParam>(type);
